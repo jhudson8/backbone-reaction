@@ -1,0 +1,26 @@
+{
+  "name": "reactive-backbone",
+  "main": "reactive-backbone.js",
+  "version": "0.6.0",
+  "homepage": "https://github.com/jhudson8/reactive-backbone",
+  "authors": [
+    "Joe Hudson <joehud@gmail.com>"
+  ],
+  "description": "react, backbone and then some",
+  "moduleType": [
+    "amd",
+    "globals"
+  ],
+  "keywords": [
+    "react",
+    "backbone"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

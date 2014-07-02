@@ -1,0 +1,27 @@
+{
+  "name": "reactive-backbone",
+  "version": "0.6.0",
+  "author": "Joe Hudson <joehud@gmail.com>",
+  "description": "react, backbone and then some",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jhudson8/reactive-backbone.git"
+  },
+  "keywords": [
+    "react",
+    "backbone"
+  ],
+  "dependencies": {
+    "underscore": "*"
+  },
+  "devDependencies": {
+    "react": "*",
+    "backbone": "*",
+    "chai": "*",
+    "mocha": "*",
+    "sinon": "*",
+    "sinon-chai": "*",
+    "uglify-js": "*"
+  },
+  "license": "MIT"
+}
