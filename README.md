@@ -13,7 +13,7 @@ This includes:
 Why Reactive-backbone?
 ----------------------
 
-While others might consider complete Backbone integration with React to be a mixin which will refresh the React component when the model changes, there are many other ways that React can be more integrated with Backbone and, in addition, more familiar with Backbone developers.
+While others projects might consider complete Backbone integration with React to be a mixin which will refresh the React component when the model changes, there are many other ways that React can be more integrated with Backbone and, in addition, more familiar with Backbone developers.
 
 We expose several isolated backbone-specific mixins which can be individually included to meet the needs of the specific React component.  This includes things like
 * automatically set the ```loading``` state when a component is fetching or performing any other ajax operations
@@ -25,5 +25,25 @@ We expose several isolated backbone-specific mixins which can be individually in
 Since all of these mixins are registered using [react-mixin-manager](https://github.com/jhudson8/react-mixin-manager), any mixins can be grouped and referenced by a single alias for easy component integration.
 
 ```
-// groou 
+// add a bunch of mixins that I want to be included in my components
+React.mixins.alias('complete', 'events', 'modelPopulate', 'modelEventAware', 'modelChangeAware', 'modelAsyncAware');
+
+// when defining your components
+var MyComponent = React.createClass({
+  mixins ['complete'],
+  render: {
+    ...
+  }
+});
 ```
+
+Not just Backbone Integration
+-----------------------------
+
+You get the [mixin manager](https://github.com/jhudson8/react-mixin-manager) to make using mixins much more flexible and support for robust [declarative events](https://github.com/jhudson8/react-events).  See the individual projects listed at the top of this document for more documentation and details.
+
+Installation
+------------
+
+* Browser: include *reactive-backbone[.min].js* after React and Backbone
+* CommonJS: ```require('reactive-backbone')(require('react'), require('backbone'));```
