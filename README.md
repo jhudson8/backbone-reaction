@@ -26,7 +26,11 @@ Since all of these mixins are registered using [react-mixin-manager](https://git
 
 ```
 // add a bunch of mixins that I want to be included in my components
-React.mixins.alias('complete', 'events', 'modelPopulate', 'modelEventAware', 'modelChangeAware', 'modelAsyncAware');
+React.mixins.alias(
+  // the first parameter is the alias name
+  'complete',
+  // all additional parameters are the mixins to include
+  'events', 'modelPopulate', 'modelEventAware', 'modelChangeAware', 'modelAsyncAware');
 
 // when defining your components
 var MyComponent = React.createClass({
