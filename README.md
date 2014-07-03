@@ -45,5 +45,5 @@ You get the [mixin manager](https://github.com/jhudson8/react-mixin-manager) to 
 Installation
 ------------
 
-*Browive-backbone[.min].js* after [React](http://facebook.github.io/react/) and [Backbone](http://backbonejs.org/)
+* Browser: include *reactive-backbone[.min].js* after [React](http://facebook.github.io/react/) and [Backbone](http://backbonejs.org/)
 * CommonJS: ```require('reactive-backbone')(require('react'), require('backbone'));```
