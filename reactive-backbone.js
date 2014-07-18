@@ -615,10 +615,6 @@
 })();
 //// END OF REACT-EVENTS
 
-
-
-
-
 //// REACT-BACKBONE
 (function() {
   function getModelByPropkey(key, context, useGetModel) {
@@ -763,10 +759,10 @@
         components = _.map(this.refs, function(value) {return value;});
       }
       _.each(components, function(component) {
-        // the component *must* have a getModelValue
-        if (component.getModelValue) {
+        // the component *must* implement getUIValue
+        if (component.getUIValue) {
           var key = getKey(component),
-              value = component.getModelValue();
+              value = component.getUIValue();
           attributes[key] = value;
         }
       });
@@ -774,7 +770,7 @@
         var model = this.getModel();
         if (model) {
           if (model.set(attributes, options || {validate: true})) {
-            callback(model);
+            callback.call(this, model);
           }
         }
       }
