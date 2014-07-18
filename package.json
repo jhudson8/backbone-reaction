@@ -1,11 +1,11 @@
 {
-  "name": "reactive-backbone",
+  "name": "reactbone",
   "version": "0.6.0",
   "author": "Joe Hudson <joehud@gmail.com>",
   "description": "react, backbone and then some",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jhudson8/reactive-backbone.git"
+    "url": "https://github.com/jhudson8/reactbone.git"
   },
   "keywords": [
     "react",
