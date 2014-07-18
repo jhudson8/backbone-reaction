@@ -20,6 +20,12 @@ React.createClass({
 })
 ```
 
+
+Docs
+-------------
+Instead of reading this README file, you can [view it in fancydocs](http://jhudson8.github.io/fancydocs/index.html#project/jhudson8/reactive-backbone) for a better experience.
+
+
 Bundled Projects
 ---------------------
 * [react-mixin-manager](https://github.com/jhudson8/react-mixin-manager) to allow mixins to be defined with dependencies
