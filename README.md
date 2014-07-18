@@ -22,10 +22,10 @@ React.createClass({
 
 Bundled Projects
 ---------------------
-* [mixin manager](https://github.com/jhudson8/react-mixin-manager) to allow mixins to be defined with dependencies
-* [declaritive events](https://github.com/jhudson8/react-events) similar to what you get with [Backbone](http://backbonejs.org/).View
-* [flexible model async activity binding](https://github.com/jhudson8/backbone-async-event)
-* [many backbone-aware React mixins](https://github.com/jhudson8/react-backbone)
+* [react-mixin-manager](https://github.com/jhudson8/react-mixin-manager) to allow mixins to be defined with dependencies
+* [react-events](https://github.com/jhudson8/react-events) similar to what you get with [Backbone](http://backbonejs.org/).View
+* [react-backbone](https://github.com/jhudson8/react-backbone)
+* [backbone-async-event](https://github.com/jhudson8/backbone-async-event)
 
 
 Installation
