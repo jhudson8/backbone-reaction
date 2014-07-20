@@ -1,6 +1,6 @@
-reactbone
+backbone-reaction
 =================
-reactbone contains both enhancements to [React](http://facebook.github.io/react/), [Backbone](http://backbonejs.org/), and additional mixins to allow React to work seamelessly with Backbone.
+backbone-reaction contains both enhancements to [React](http://facebook.github.io/react/), [Backbone](http://backbonejs.org/), and additional mixins to allow React to work seamelessly with Backbone.
 
 While others projects might consider complete Backbone integration with React to be a mixin which will refresh the React component when the model changes, there are many other ways that React can be more integrated with Backbone and, in addition, more familiar with Backbone developers.
 
@@ -23,7 +23,7 @@ React.createClass({
 
 Docs
 -------------
-Instead of reading this README file, you can [view it in fancydocs](http://jhudson8.github.io/fancydocs/index.html#project/jhudson8/reactbone) for a better experience.
+Instead of reading this README file, you can [view it in fancydocs](http://jhudson8.github.io/fancydocs/index.html#project/jhudson8/backbone-reaction) for a better experience.
 
 
 Bundled Projects
@@ -37,5 +37,5 @@ Bundled Projects
 Installation
 ------------
 
-* Browser: include *reactbone[.min].js* after React and Backbone
-* CommonJS: ```require('reactbone')(require('react'), require('backbone'));```
+* Browser: include *backbone-reaction[.min].js* after React and Backbone
+* CommonJS: ```require('backbone-reaction')(require('react'), require('backbone'));```
