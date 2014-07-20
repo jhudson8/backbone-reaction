@@ -1,2 +1,0 @@
-v0.6.1
-no changes - trying to get past an issue while registering this project with bower
