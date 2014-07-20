@@ -1,7 +1,7 @@
 {
   "name": "reactbone",
   "main": "reactbone.js",
-  "version": "0.6.1",
+  "version": "0.7.0",
   "homepage": "https://github.com/jhudson8/reactbone",
   "authors": [
     "Joe Hudson <joehud@gmail.com>"
