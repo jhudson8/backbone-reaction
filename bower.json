@@ -1,8 +1,8 @@
 {
-  "name": "reactbone",
-  "main": "reactbone.js",
+  "name": "backbone-reaction",
+  "main": "ckbone-reaction.js",
   "version": "0.7.0",
-  "homepage": "https://github.com/jhudson8/reactbone",
+  "homepage": "https://github.com/jhudson8/backbone-reaction",
   "authors": [
     "Joe Hudson <joehud@gmail.com>"
   ],

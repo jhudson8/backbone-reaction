@@ -1,6 +1,6 @@
 /*!
  * reactbone v0.7.0
- * https://github.com/jhudson8/reactive-backbone
+ * https://github.com/jhudson8/backbone-reaction
  * 
  * Copyright (c) 2014 Joe Hudson<joehud_AT_gmail.com>
  * 
