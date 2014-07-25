@@ -2,7 +2,12 @@
 
 ## Development
 
-[Commits](https://github.com/jhudson8/backbone-reaction/compare/v0.8.0...master)
+[Commits](https://github.com/jhudson8/backbone-reaction/compare/v0.8.1...master)
+
+## v0.8.1 - July 25th, 2014
+- upgrade to react-events 0.4.3 - 3e98044
+
+[Commits](https://github.com/jhudson8/backbone-reaction/compare/v0.8.0...v0.8.1)
 
 ## v0.8.0 - July 20th, 2014
 - move from react-backbone 0.8.0 to 0.9.0 - 599ae71
