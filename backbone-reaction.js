@@ -339,7 +339,7 @@
 
 (function() {
 /*******************
- * react-events v0.4.3
+ * react-events v0.4.4
  * https://github.com/jhudson8/react-events
 ********************/
 
@@ -598,6 +598,17 @@
   //// REGISTER THE REACT MIXIN
   React.mixins.add('events', function() {
     var rtn = [{
+      /**
+       * Return a callback fundtion that will trigger an event on "this" when executed with the provided parameters
+       */
+      triggerWith: function(eventName) {
+        var args = Array.prototype.slice.call(arguments),
+            self = this;
+        return function() {
+          self.trigger.apply(this, args);
+        };
+      },
+
       getInitialState: function() {
         var handlers = this._eventHandlers = [];
         if (this.events) {
@@ -661,19 +672,6 @@
     return rtn;
   });
 
-  React.mixins.add('triggerWith', {
-    /**
-     * Return a callback fundtion that will trigger an event on "this" when executed with the provided parameters
-     */
-    triggerWith: function(eventName) {
-      var args = Array.prototype.slice.call(arguments),
-          self = this;
-      return function() {
-        self.trigger.apply(this, args);
-      };
-    }
-  });
-
 /*******************
  * end of react-events
 ********************/
@@ -682,7 +680,7 @@
 
 (function() {
 /*******************
- * react-backbone v0.9.0
+ * react-backbone v0.9.1
  * https://github.com/jhudson8/react-backbone
 ********************/
 
@@ -1117,6 +1115,28 @@
           }
         }
         return {};
+      },
+
+      /**
+       * Intercept (and return) the options which will set the loading state (state.loading = true) when this is called and undo
+       * the state once the callback has completed
+       */
+      loadWhile: function(options) {
+        options = options || {};
+        var self = this;
+        function wrap(type) {
+          var _callback = options[type];
+          options[type] = function() {
+            self.setState({loading: false});
+            if (_callback) {
+              _callback.apply(this, arguments);
+            }
+          }
+        }
+        wrap('error');
+        wrap('success');
+        this.setState({loading: true});
+        return options;
       }
     }
   }, 'modelEventAware');
