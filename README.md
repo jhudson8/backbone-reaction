@@ -20,6 +20,7 @@ React.createClass({
 })
 ```
 
+[View backbone-reaction fancydocs](http://jhudson8.github.io/fancydocs/index.html#project/jhudson8/backbone-reaction) (courtesy of https://github.com/jhudson8/fancydocs)
 
 Docs
 -------------
