@@ -25,10 +25,10 @@ React.createClass({
 
 Bundled Projects
 ---------------------
-* [react-mixin-manager](https://github.com/jhudson8/react-mixin-manager) to allow mixins to be defined with dependencies
-* [react-events](https://github.com/jhudson8/react-events) declarative component events similar to what you get with Backbone.View
-* [react-backbone](https://github.com/jhudson8/react-backbone) tight integration of React and Backbone using a suite of mixins
-* [backbone-async-event](https://github.com/jhudson8/backbone-async-event) add ajax activity events to your Backbone models and collections
+* [jhudson8/react-mixin-manager](https://github.com/jhudson8/react-mixin-manager) to allow mixins to be defined with dependencies
+* [jhudson8/react-events](https://github.com/jhudson8/react-events) declarative component events similar to what you get with Backbone.View
+* [jhudson8/react-backbone](https://github.com/jhudson8/react-backbone) tight integration of React and Backbone using a suite of mixins
+* [jhudson8/backbone-async-event](https://github.com/jhudson8/backbone-async-event) add ajax activity events to your Backbone models and collections
 
 
 Installation
