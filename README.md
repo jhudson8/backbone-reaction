@@ -22,10 +22,6 @@ React.createClass({
 
 [View backbone-reaction fancydocs](http://jhudson8.github.io/fancydocs/index.html#project/jhudson8/backbone-reaction) (courtesy of https://github.com/jhudson8/fancydocs)
 
-Docs
--------------
-Instead of reading this README file, you can [view it in fancydocs](http://jhudson8.github.io/fancydocs/index.html#project/jhudson8/backbone-reaction) for a better experience.
-
 
 Bundled Projects
 ---------------------
