@@ -2,7 +2,8 @@ backbone-reaction
 =================
 backbone-reaction contains both enhancements to [React](http://facebook.github.io/react/), [Backbone](http://backbonejs.org/), and additional mixins to allow React to work seamelessly with Backbone.
 
-[View backbone-reaction fancydocs](http://jhudson8.github.io/fancydocs/index.html#project/jhudson8/backbone-reaction) (courtesy of https://github.com/jhudson8/fancydocs and made with backbone-reaction)
+*[View backbone-reaction fancydocs](http://jhudson8.github.io/fancydocs/index.html#project/jhudson8/backbone-reaction)*
+*(courtesy of https://github.com/jhudson8/fancydocs and made with backbone-reaction)**
 
 While others projects might consider complete Backbone integration with React to be a mixin which will refresh the React component when the model changes, there are many other ways that React can be more integrated with Backbone and, in addition, more familiar with Backbone developers.
 
