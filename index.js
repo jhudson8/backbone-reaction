@@ -1,1 +1,1 @@
-module.exports = require('./reactbone');
+module.exports = require('./backbone-reaction');
