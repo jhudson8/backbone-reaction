@@ -2,7 +2,17 @@
 
 ## Development
 
-[Commits](https://github.com/jhudson8/backbone-reaction/compare/v0.8.1...master)
+[Commits](https://github.com/jhudson8/backbone-reaction/compare/v0.9.0...master)
+
+## v0.9.0 - September 7th, 2014
+ -  https://github.com/jhudson8/react-mixin-manager v0.7.0 
+ +  https://github.com/jhudson8/react-mixin-manager v0.7.1 
+ -  https://github.com/jhudson8/react-events v0.4.4 
+ +  https://github.com/jhudson8/react-events v0.5.0    
+ -  https://github.com/jhudson8/react-backbone v0.9.1 
+ +  https://github.com/jhudson8/react-backbone v0.10.1 - 5bfabe9
+
+[Commits](https://github.com/jhudson8/backbone-reaction/compare/v0.8.1...v0.9.0)
 
 ## v0.8.1 - July 25th, 2014
 - upgrade to react-events 0.4.3 - 3e98044
