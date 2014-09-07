@@ -9,7 +9,8 @@
   },
   "keywords": [
     "react",
-    "backbone"
+    "backbone",
+    "react-component"
   ],
   "dependencies": {
     "underscore": "*"

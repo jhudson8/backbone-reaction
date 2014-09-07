@@ -25,10 +25,10 @@
 
 /*
   Container script which includes the following:
-  https://github.com/jhudson8/react-mixin-manager v0.7.0
-  https://github.com/jhudson8/react-events v0.4.4
+  https://github.com/jhudson8/react-mixin-manager v0.7.1
+  https://github.com/jhudson8/react-events v0.5.0
   https://github.com/jhudson8/backbone-async-event v0.4.0
-  https://github.com/jhudson8/react-backbone v0.9.1
+  https://github.com/jhudson8/react-backbone v0.10.1
 */
  (function(main) {
   if (typeof define === 'function' && define.amd) {
