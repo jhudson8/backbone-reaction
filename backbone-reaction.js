@@ -1,5 +1,5 @@
 /*!
- * backbone-reaction v0.9.0
+ * backbone-reaction v0.9.2
  * https://github.com/jhudson8/backbone-reaction
  * 
  * Copyright (c) 2014 Joe Hudson<joehud_AT_gmail.com>

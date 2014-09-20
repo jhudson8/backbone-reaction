@@ -2,6 +2,11 @@
 
 ## Development
 
+[Commits](https://github.com/jhudson8/backbone-reaction/compare/v0.9.2...master)
+
+## v0.9.2 - September 20th, 2014
+- fix messed up 0.9.1 release
+
 [Commits](https://github.com/jhudson8/backbone-reaction/compare/v0.9.1...master)
 
 ## v0.9.1 - September 20th, 2014
