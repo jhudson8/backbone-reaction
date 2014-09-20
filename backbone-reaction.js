@@ -28,7 +28,7 @@
   https://github.com/jhudson8/react-mixin-manager v0.7.1
   https://github.com/jhudson8/react-events v0.5.0
   https://github.com/jhudson8/backbone-async-event v0.4.0
-  https://github.com/jhudson8/react-backbone v0.10.1
+  https://github.com/jhudson8/react-backbone v0.10.2
 */
  (function(main) {
   if (typeof define === 'function' && define.amd) {
@@ -750,6 +750,25 @@
     return model;
   }
 
+  function setState(state, context) {
+    if (context.isMounted()) {
+      context.setState(state);
+    } else if (context.state)  {
+      _.extend(context.state, state);
+    } else {
+      // if we aren't mounted, we will get an exception if we try to set the state
+      // so keep a placeholder state until we're mounted
+      // this is mainly useful if setModel is called on getInitialState
+      context.__react_backbone_state = _.extend(context.__react_backbone_state || {}, state);
+    }
+  }
+
+  function getState(key, context) {
+    var state = context.state,
+        initState = context.__react_backbone_state;
+    return (state && state[key]) || (initState && initState[key]);
+  }
+
   function eventParser(src) {
     if (!src) {
       return;
@@ -784,18 +803,12 @@
    * (type(on|once|off), {event, callback, context, model})
    */
   function onEvent(type, data) {
-    var eventsParent = this,
-        modelEvents;
+    var eventsParent = this;
     data = _.extend({type: type}, data);
-    if (this.state) {
-      modelEvents = this.state.__modelEvents;
-      eventsParent = this.state;
-    } else {
-      modelEvents = this.__modelEvents;
-    }
+    var modelEvents = getState('__modelEvents', this);
     if (!modelEvents) {
-      // don't call setState because this should not trigger a render
-      modelEvents = eventsParent.__modelEvents = [];
+      modelEvents = [];
+      setState({__modelEvents: modelEvents}, this);
     }
     data.context = data.context || this;
     modelEvents.push(data);
@@ -815,15 +828,28 @@
    * be set on props or by calling setModel
    */  
   React.mixins.add('modelAware', {
+    componentWillMount: function() {
+      // not directly related to this mixin but all of these mixins have this as a dependency
+      // if setState was called before the component was mounted, the actual component state was
+      // not set because it might not exist.  Convert the pretend state to the real thing
+      // (but don't trigger a render)
+      var _state = this.__react_backbone_state;
+      if (_state) {
+        this.state = _.extend(this.state || {}, _state);
+        delete this.__react_backbone_state;
+      }
+    },
+
     getModel: function() {
-      return this.props.model;
+      return getState('model', this) || getState('collection', this)
+          || this.props.model || this.props.collection;
     },
 
     setModel: function(model) {
       if (this._modelUnbindAll) {
         this._modelUnbindAll(true);
       }
-      this.setProps({model: model});
+      setState({model: model}, this);
       if (this._modelBindAll && this.isMounted()) {
         // bind all events if using modelEventAware
         this._modelBindAll();
@@ -961,43 +987,31 @@
 
     // bind all registered events to the model
     _modelBindAll: function() {
-      if (this.state) {
-        var modelEvents = this.__modelEvents;
-        if (modelEvents) {
-          // if events were registered before this time, move the cache to state
-          delete this.__modelEvents;
-          // don't use setState because there is no need to trigger a render
-          this.state.__modelEvents = modelEvents;
-        }
-
-        modelEvents = this.state.__modelEvents;
-        if (modelEvents) {
-          var thisModel = this.getModel();
-          _.each(modelEvents, function(data) {
-            var model = data.model || thisModel;
-            if (model) {
-              model[data.type](data.event, data.callback, data.context);
-            }
-          });
-        }
+      var modelEvents = getState('__modelEvents', this);
+      if (modelEvents) {
+        var thisModel = this.getModel();
+        _.each(modelEvents, function(data) {
+          var model = data.model || thisModel;
+          if (model) {
+            model[data.type](data.event, data.callback, data.context);
+          }
+        });
       }
     },
 
     // unbind all registered events from the model
     _modelUnbindAll: function(keepRegisteredEvents) {
-      if (this.state) {
-        var modelEvents = this.state.__modelEvents,
-            thisModel = this.getModel();
-        if (modelEvents) {
-          _.each(modelEvents, function(data) {
-            var model = data.model || thisModel;
-            if (model) {
-              model.off(data.event, data.callback, data.context);
-            }
-          });
-          if (!keepRegisteredEvents) {
-            this.state.__modelEvents = [];
+      var modelEvents = getState('__modelEvents', this);
+      if (modelEvents) {
+        var thisModel = this.getModel();
+        _.each(modelEvents, function(data) {
+          var model = data.model || thisModel;
+          if (model) {
+            model.off(data.event, data.callback, data.context);
           }
+        });
+        if (!keepRegisteredEvents) {
+          setState({__modelEvents: []}, this);
         }
       }
     },
@@ -1037,18 +1051,14 @@
   React.mixins.add('modelAsyncAware', {
     getInitialState: function() {
       this.modelOn('async', function(eventName, events) {
-        this.setState({loading: true});
+        setState({loading: true}, this);
 
         var model = this.getModel();
         events.on('success', function() {
-          if (this.isMounted()) {
-            this.setState({loading: !!model.isLoading()});
-          }
+          setState({loading: !!model.isLoading()}, this);
         }, this);
         events.on('error', function(error) {
-          if (this.isMounted()) {
-            this.setState({loading: !!model.isLoading(), error: error});
-          }
+          setState({loading: !!model.isLoading(), error: error}, this);
         }, this);
       });
 
@@ -1067,13 +1077,13 @@
         if (model.isLoading()) {
           // we're still loading yet but we haven't yet bound to this event
           this.modelOnce('async:load-complete', function() {
-            this.setState({loading: false});
+            setState({loading: false}, this);
           });
           if (!state.loading) {
-            this.setState({loading: true});
+            setState({loading: true}, this);
           }
         } else if (state.loading) {
-          this.setState({loading: false});
+          setState({loading: false}, this);
         }
       }
     }
@@ -1093,9 +1103,7 @@
           errors = this.modelIndexErrors(errors) || {};
           var message = errors[key];
           if (message) {
-            this.setState({
-              error: message
-            });
+            setState({error: message}, this);
           }
         });
       }
@@ -1137,11 +1145,9 @@
     return {
       getInitialState: function() {
         keys = modelEventHandler(keys || 'loadOn', this, 'async:{key}', function(events) {
-          this.setState({loading: true});
+          setState({loading: true}, this);
           events.on('complete', function() {
-            if (this.isMounted()) {
-              this.setState({loading: false});
-            }
+            setState({loading: false}, this);
           }, this);
         });
 
@@ -1152,9 +1158,7 @@
               key;
           if (currentLoads) {
             var clearLoading = function() {
-              if (this.isMounted()) {
-                this.setState({loading: false});
-              }
+              setState({loading: false}, this);
             }
             for (var i=0; i<currentLoads.length; i++) {
               var keyIndex = keys.indexOf(currentLoads[i].method);
@@ -1180,7 +1184,7 @@
         function wrap(type) {
           var _callback = options[type];
           options[type] = function() {
-            self.setState({loading: false});
+            setState({loading: false}, self);
             if (_callback) {
               _callback.apply(this, arguments);
             }
@@ -1188,7 +1192,7 @@
         }
         wrap('error');
         wrap('success');
-        this.setState({loading: true});
+        setState({loading: true}, this);
         return options;
       }
     }
