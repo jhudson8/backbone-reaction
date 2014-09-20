@@ -2,7 +2,13 @@
 
 ## Development
 
-[Commits](https://github.com/jhudson8/backbone-reaction/compare/v0.9.0...master)
+[Commits](https://github.com/jhudson8/backbone-reaction/compare/v0.9.1...master)
+
+## v0.9.1 - September 20th, 2014
+- [#1](https://github.com/jhudson8/backbone-reaction/issues/1) - Question about getModel()
+- react-backbone 0.10.1 -> 0.10.2 - 8508e90
+
+[Commits](https://github.com/jhudson8/backbone-reaction/compare/v0.9.0...v0.9.1)
 
 ## v0.9.0 - September 7th, 2014
  -  https://github.com/jhudson8/react-mixin-manager v0.7.0 
