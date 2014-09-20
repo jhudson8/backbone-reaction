@@ -1,7 +1,7 @@
 {
   "name": "backbone-reaction",
   "main": "ckbone-reaction.js",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "homepage": "https://github.com/jhudson8/backbone-reaction",
   "authors": [
     "Joe Hudson <joehud@gmail.com>"
