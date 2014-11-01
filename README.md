@@ -2,7 +2,7 @@ backbone-reaction
 =================
 backbone-reaction contains both enhancements to [React](http://facebook.github.io/react/), [Backbone](http://backbonejs.org/), and additional mixins to allow React to work seamelessly with Backbone.
 
-***[View backbone-reaction fancydocs](http://jhudson8.github.io/fancydocs/index.html#project/jhudson8/backbone-reaction) (courtesy of [jhudson8/fancydocs](https://github.com/jhudson8/fancydocs))***
+[View fancydocs](http://jhudson8.github.io/fancydocs/index.html#project/jhudson8/backbone-reaction)
 
 While others projects might consider complete Backbone integration with React to be a mixin which will refresh the React component when the model changes, there are many other ways that React can be more integrated with Backbone and, in addition, more familiar with Backbone developers.
 
@@ -28,7 +28,7 @@ Bundled Projects
 * [jhudson8/react-mixin-manager](https://github.com/jhudson8/react-mixin-manager) to allow mixins to be defined with dependencies
 * [jhudson8/react-events](https://github.com/jhudson8/react-events) declarative component events similar to what you get with Backbone.View
 * [jhudson8/react-backbone](https://github.com/jhudson8/react-backbone) tight integration of React and Backbone using a suite of mixins
-* [jhudson8/backbone-xhr-events](https://github.com/jhudson8/backbone-xhr-events) add ajax activity events to your Backbone models and collections
+* [jhudson8/backbone-xhr-events](https://github.com/jhudson8/backbone-xhr-events) add XHR activity events to your Backbone models and collections
 
 
 Installation
