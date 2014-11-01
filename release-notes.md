@@ -2,7 +2,20 @@
 
 ## Development
 
-[Commits](https://github.com/jhudson8/backbone-reaction/compare/v0.9.2...master)
+[Commits](https://github.com/jhudson8/backbone-reaction/compare/v0.10.0...master)
+
+## v0.10.0 - November 1st, 2014
+- [#1](https://github.com/jhudson8/backbone-reaction/issues/1) - Question about getModel()
+- react-backbone:0.10.2 -> react-backbone:0.11.0 - b917b30
+- backbone-async-event:0.4.0 -> backbone-xhr-events:0.6.0 - a3c5ec1
+
+Compatibility notes:
+Take special note of backbone-xhr-events.  This project name changed, new features were added and existing features changed significantly. This project is not backwards compatible.  See release notes for more details:
+
+- https://github.com/jhudson8/backbone-xhr-events/blob/master/release-notes.md
+- https://github.com/jhudson8/react-backbone/blob/master/release-notes.md
+
+[Commits](https://github.com/jhudson8/backbone-reaction/compare/v0.9.2...v0.10.0)
 
 ## v0.9.2 - September 20th, 2014
 - fix messed up 0.9.1 release
