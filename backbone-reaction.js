@@ -28,7 +28,7 @@
   https://github.com/jhudson8/react-mixin-manager v0.7.1
   https://github.com/jhudson8/react-events v0.5.0
   https://github.com/jhudson8/backbone-xhr-events v0.6.0
-  https://github.com/jhudson8/react-backbone v0.10.2
+  https://github.com/jhudson8/react-backbone v0.11.0
 */
  (function(main) {
   if (typeof define === 'function' && define.amd) {
@@ -816,6 +816,10 @@
  * https://github.com/jhudson8/react-backbone
 ********************/
 
+  var xhrEventName = Backbone.xhrEventName;
+  var xhrCompleteEventName = Backbone.xhrCompleteEventName;
+  var xhrModelLoadingAttribute = Backbone.xhrModelLoadingAttribute;
+
   function getModelByPropkey(key, context, useGetModel) {
     var model;
     if (key) {
@@ -1120,32 +1124,29 @@
   }, 'modelEventAware', 'deferUpdate');
 
 
-  // THE FOLLING MIXINS ASSUME THE INCLUSION OF [backbone-async-event](https://github.com/jhudson8/backbone-async-event)
+  // THE FOLLING MIXINS ASSUME THE INCLUSION OF [backbone-xhr-events](https://github.com/jhudson8/backbone-xhr-events)
 
   /**
-   * If the model executes *any* asynchronous activity, the internal state "loading" attribute
+   * If the model executes *any* XHR activity, the internal state "loading" attribute
    * will be set to true and, if an error occurs with loading, the "error" state attribute
    * will be set with the error contents
    */
-  React.mixins.add('modelAsyncAware', {
+  React.mixins.add('modelXHRAware', {
     getInitialState: function() {
-      this.modelOn('async', function(eventName, events) {
+      this.modelOn(xhrEventName, function(eventName, events) {
         setState({loading: true}, this);
 
         var model = this.getModel();
         events.on('success', function() {
-          setState({loading: !!model.isLoading()}, this);
+          setState({loading: model[xhrModelLoadingAttribute]}, this);
         }, this);
         events.on('error', function(error) {
-          setState({loading: !!model.isLoading(), error: error}, this);
+          setState({loading: model[xhrModelLoadingAttribute], error: error}, this);
         }, this);
       });
 
       var model = this.getModel();
-      if (model && model.isLoading()) {
-        return {loading: true};
-      }
-      return {};
+      return {loading: model && model[xhrModelLoadingAttribute]};
     },
 
     componentDidMount: function() {
@@ -1153,9 +1154,10 @@
       var state = this.state,
           model = this.getModel();
       if (model) {
-        if (model.isLoading()) {
+        var loading = model[xhrModelLoadingAttribute];
+        if (loading) {
           // we're still loading yet but we haven't yet bound to this event
-          this.modelOnce('async:load-complete', function() {
+          this.modelOnce(xhrCompleteEventName, function() {
             setState({loading: false}, this);
           });
           if (!state.loading) {
@@ -1182,7 +1184,7 @@
           errors = this.modelIndexErrors(errors) || {};
           var message = errors[key];
           if (message) {
-            setState({error: message}, this);
+            setState({invalid: message}, this);
           }
         });
       }
@@ -1223,8 +1225,9 @@
     var keys = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0) : undefined;
     return {
       getInitialState: function() {
-        keys = modelEventHandler(keys || 'loadOn', this, 'async:{key}', function(events) {
-          setState({loading: true}, this);
+        keys = modelEventHandler(keys || 'loadOn', this, xhrEventName + ':{key}', function(events) {
+          var model = this.getModel();
+          setState({loading: model[xhrModelLoadingAttribute]}, this);
           events.on('complete', function() {
             setState({loading: false}, this);
           }, this);
@@ -1233,7 +1236,7 @@
         // see if we are currently loading something
         var model = this.getModel();
         if (model) {
-          var currentLoads = model.isLoading(),
+          var currentLoads = model.loading,
               key;
           if (currentLoads) {
             var clearLoading = function() {
@@ -1245,7 +1248,7 @@
                 // there is currently an async event for this key
                 key = keys[keyIndex];
                 currentLoads[i].on('complete', clearLoading, this);
-                return {loading: true};
+                return {loading: model[xhrModelLoadingAttribute]};
               }
             }
           }
