@@ -2,7 +2,7 @@
   "name": "backbone-reaction",
   "version": "0.10.0",
   "author": "Joe Hudson <joehud@gmail.com>",
-  "description": "react, backbone and then some",
+  "description": "multiple projects working together (backbone-xhr-events, react-events, react-backbone, react-mixin-manager)",
   "repository": {
     "type": "git",
     "url": "https://github.com/jhudson8/backbone-reaction.git"
@@ -10,7 +10,8 @@
   "keywords": [
     "react",
     "backbone",
-    "react-component"
+    "react-component",
+    "react-mixin-manager"
   ],
   "dependencies": {
     "underscore": "*"

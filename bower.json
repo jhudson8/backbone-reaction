@@ -6,14 +6,16 @@
   "authors": [
     "Joe Hudson <joehud@gmail.com>"
   ],
-  "description": "react, backbone and then some",
+  "description": "multiple projects working together (backbone-xhr-events, react-events, react-backbone, react-mixin-manager)e",
   "moduleType": [
     "amd",
     "globals"
   ],
   "keywords": [
     "react",
-    "backbone"
+    "backbone",
+    "react-component",
+    "react-mixin-manager"
   ],
   "license": "MIT",
   "ignore": [
