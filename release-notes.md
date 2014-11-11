@@ -2,7 +2,18 @@
 
 ## Development
 
-[Commits](https://github.com/jhudson8/backbone-reaction/compare/v0.10.1...master)
+[Commits](https://github.com/jhudson8/backbone-reaction/compare/v0.11.0...master)
+
+## v0.11.0 - November 11th, 2014
+- update  dependencies - e086ec9
+react-mixin-manager 0.7.1 -> 0.8.0
+react-events 0.5.0 -> 0.5.2
+backbone-xhr-events 0.6.0 -> 0.8.1
+react-backbone 0.11.0 -> 0.11.2
+
+see individual project release-notes.md for more details
+
+[Commits](https://github.com/jhudson8/backbone-reaction/compare/v0.10.1...v0.11.0)
 
 ## v0.10.1 - November 2nd, 2014
 - added keyword "react-mixin-manager" - a515195
