@@ -512,6 +512,16 @@
     }
   });
 
+  /**
+   * very simple mixin that ensures that the component state is an object.  This is useful if you
+   * know a component will be using state but won't be initialized with a state to prevent a null check on render
+   */
+  React.mixins.add('state', {
+    getInitialState: function() {
+      return {};
+    }
+  });
+
 /*******************
  * end of react-mixin-manager
 ********************/
