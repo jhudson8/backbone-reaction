@@ -2,7 +2,14 @@
 
 ## Development
 
-[Commits](https://github.com/jhudson8/backbone-reaction/compare/v0.11.0...master)
+[Commits](https://github.com/jhudson8/backbone-reaction/compare/v0.11.1...master)
+
+## v0.11.1 - November 11th, 2014
+- react-mixin-manager v0.8.0 - e8b9b7e
+(was listed in previous release notes as being updated but I missed it)
+
+
+[Commits](https://github.com/jhudson8/backbone-reaction/compare/v0.11.0...v0.11.1)
 
 ## v0.11.0 - November 11th, 2014
 - update  dependencies - e086ec9
