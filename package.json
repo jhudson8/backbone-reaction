@@ -1,6 +1,6 @@
 {
   "name": "backbone-reaction",
-  "version": "0.11.1",
+  "version": "0.11.2",
   "author": "Joe Hudson <joehud@gmail.com>",
   "description": "multiple projects working together (backbone-xhr-events, react-events, react-backbone, react-mixin-manager)",
   "repository": {
