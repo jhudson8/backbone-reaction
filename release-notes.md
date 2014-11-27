@@ -2,7 +2,21 @@
 
 ## Development
 
-[Commits](https://github.com/jhudson8/backbone-reaction/compare/v0.11.2...master)
+[Commits](https://github.com/jhudson8/backbone-reaction/compare/v0.12.0...master)
+
+## v0.12.0 - November 27th, 2014
+backbone-xhr-events 0.8.1 -> 0.9.0
+react-events 0.5.2 -> 0.7.2
+react-mixin-manager 0.8.0 -> 0.9.1
+react-backbone 0.11.3 -> 0.13.2 - 57236f6
+
+Compatibility notes:
+The CommonJS reference now needs the underscore impl to be provided as an additional last parameter.
+
+***This is the last release of backbone-reaction.  To avoid confusion, use [jhudson8/react-backbone](https://github.com/jhudson8/react-backbone) instead.  See the "with dependencies together" installation instructions.***
+
+
+[Commits](https://github.com/jhudson8/backbone-reaction/compare/v0.11.2...v0.12.0)
 
 ## v0.11.2 - November 11th, 2014
 - react-backbone 0.11.2 -> 0.11.3 - d561a1a
