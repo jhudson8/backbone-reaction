@@ -25,6 +25,6 @@ chai.use(sinonChai);
 Backbone.$ = $;
 
 // add react-backbone mixins
-require('../index')(React, Backbone);
+require('../index')(React, Backbone, _);
 
 // this is just a sanity check to make sure the code can be parsed as the unit tests are in their associated projects
