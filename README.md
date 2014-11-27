@@ -4,23 +4,7 @@ backbone-reaction contains both enhancements to [React](http://facebook.github.i
 
 [View fancydocs](http://jhudson8.github.io/fancydocs/index.html#project/jhudson8/backbone-reaction)
 
-While others projects might consider complete Backbone integration with React to be a mixin which will refresh the React component when the model changes, there are many other ways that React can be more integrated with Backbone and, in addition, more familiar with Backbone developers.
-
-We expose several isolated backbone-specific mixins which can be individually included to meet the needs of the specific React component.  This includes things like
-
-* automatically set the ```loading``` state when a component is fetching or performing any other ajax operations
-* refresh the component when the associated model contents change
-* refresh the component when a specific event is triggered on the model
-* set an invalid state on the component when the model triggers the invalid event for a specific field
-* and others...
-
-Since all of these mixins are registered using [react-mixin-manager](https://github.com/jhudson8/react-mixin-manager), they can easily be added to your components simply by using their mixin alias.  For example:
-
-```
-React.createClass({
-  mixins: ['events']
-})
-```
+***This is the last release of backbone-reaction.  To avoid confusion, use [jhudson8/react-backbone](https://github.com/jhudson8/react-backbone) instead.  See the "with dependencies together" installation instructions.***
 
 
 Bundled Projects
@@ -29,10 +13,3 @@ Bundled Projects
 * [jhudson8/react-events](https://github.com/jhudson8/react-events) declarative component events similar to what you get with Backbone.View
 * [jhudson8/react-backbone](https://github.com/jhudson8/react-backbone) tight integration of React and Backbone using a suite of mixins
 * [jhudson8/backbone-xhr-events](https://github.com/jhudson8/backbone-xhr-events) add XHR activity events to your Backbone models and collections
-
-
-Installation
-------------
-
-* Browser: include *backbone-reaction[.min].js* after React and Backbone
-* CommonJS: ```require('backbone-reaction')(require('react'), require('backbone'));```
